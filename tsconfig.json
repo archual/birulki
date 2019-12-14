@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "es5",
+    "module": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@config": ["config"]
+    },
+    "allowSyntheticDefaultImports": true
+  }
+}
