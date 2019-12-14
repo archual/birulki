@@ -9,7 +9,7 @@ import Game from './states/Game';
 const gameHeight = 540;
 const gameWidth = 960;
 export const gameConfig = {
-  backgroundColor: 0x000000,
+  backgroundColor: 0xcccccc,
   width: gameWidth,
   centerX: gameWidth / 2,
   height: gameHeight,
@@ -18,7 +18,7 @@ export const gameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 },
+      gravity: { y: 0 },
       debug: true,
     },
   },

@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { gameConfig } from '../index';
-import battery from '../assets/images/battery_360.png';
+import stick from '../assets/images/stick.png';
+import match from '../assets/images/match.png';
 
 class Preload extends Phaser.Scene {
   constructor() {
@@ -8,7 +9,8 @@ class Preload extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('crate', battery);
+    this.load.image('stick', stick);
+    this.load.image('match', match);
 
     // show loading screen
     const preloadBar = this.add.image(gameConfig.centerX, gameConfig.centerY, 'preloadbar');

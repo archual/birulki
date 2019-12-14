@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { gameConfig } from '../index';
+import { Interface } from 'readline';
 
 class Game extends Phaser.Scene {
   constructor() {
@@ -7,6 +8,8 @@ class Game extends Phaser.Scene {
 
     // @ts-ignore
     this.score = 0;
+    // @ts-ignore
+    this.matches = [];
   }
 
   init() {}
@@ -39,13 +42,25 @@ class Game extends Phaser.Scene {
       let x = Phaser.Math.Between(50, gameConfig.width - 50);
       let y = Phaser.Math.Between(100, gameConfig.height - 50);
 
-      this.add.image(x, y, 'crate').setInteractive();
+      const stick = this.physics.add.sprite(x, y, 'match').setInteractive();
+      stick.angle = Phaser.Math.Between(-180, 180);
+      // @ts-ignore
+      this.matches.push(stick);
     }
+    // @ts-ignore
 
+    console.log(this.matches);
     this.input.on('gameobjectup', this.clickHandler, this);
   }
 
   clickHandler(pointer, box) {
+    // @ts-ignore
+
+    const index = this.matches.findIndex((e) => e === box);
+    // @ts-ignore
+    const collided = this.physics.add.collider(box, this.matches[index + 1], console.log('collided'));
+    debugger;
+
     //  Disable our box
     box.input.enabled = false;
     box.setVisible(false);
